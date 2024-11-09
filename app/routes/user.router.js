@@ -1,9 +1,14 @@
 import express from "express";
-import { saveUser, sendWelcomeEmail } from "../controllers/user.controller.js";
+import {
+  saveUser,
+  getUsers,
+  deleteUser,
+} from "../controllers/user.controller.js";
 
 const router = express.Router();
 
 router.post("/", saveUser);
-router.post("/send-welcome-email", sendWelcomeEmail);
-router.post("/forgot-password");
+router.get("/all", getUsers);
+router.delete("/:id", deleteUser);
+
 export default router;
